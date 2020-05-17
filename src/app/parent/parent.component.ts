@@ -9,7 +9,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 export class ParentComponent implements OnInit {
 
   form: FormGroup
-  childData;
+  childData = {};
+  secondDataArray;
 
   constructor(private fb: FormBuilder) { }
 
@@ -21,10 +22,12 @@ export class ParentComponent implements OnInit {
 
   onSubmit() {
     this.childData = this.form.value;
+    this.secondDataArray = this.childData;
   }
 
   getDataFromChild(event) {
     this.form.reset({ name: event.name });
+    this.secondDataArray = { name: event.name };
   }
 
 }
