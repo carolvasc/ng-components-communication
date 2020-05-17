@@ -1,6 +1,7 @@
 <div class="card">
   <h1>First Child Component</h1>
-  <p *ngIf="data">
-    Nome: {{data.name}}
-  </p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <input type="text" formControlName="name" />
+    <button submit="submit">Retorna para o pai</button>
+  </form>
 </div>
