@@ -1,8 +1,10 @@
 <div class="card">
-  <h1>Parent Component</h1>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-    <input type="text" formControlName="name" placeholder="Nome" style="display: block; margin-bottom: 10px;" />
-    <button style="display: block" type="submit">Enviar</button>
-  </form>
-  <app-first-child [data]="childData"></app-first-child>
+  <div style="margin-bottom: 20px">
+    <h1>Parent Component</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <input type="text" formControlName="name" />
+      <button type="submit">Envia para o filho</button>
+    </form>
+  </div>
+  <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
 </div>

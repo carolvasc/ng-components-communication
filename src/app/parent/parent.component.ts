@@ -23,4 +23,8 @@ export class ParentComponent implements OnInit {
     this.childData = this.form.value;
   }
 
+  getDataFromChild(event) {
+    this.form.reset({ name: event.name });
+  }
+
 }

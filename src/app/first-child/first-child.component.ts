@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-first-child',
@@ -8,15 +9,26 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 export class FirstChildComponent implements OnInit, OnChanges {
 
   @Input() data;
+  @Output() dataToParent = new EventEmitter();
 
-  constructor() { }
+  form: FormGroup;
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.data)
-
-  }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      name: this.fb.control(''),
+    })
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes.data.isFirstChange()) {
+      this.form.reset({ name: changes.data.currentValue.name });
+    }
+  }
+
+  onSubmit() {
+    this.dataToParent.emit(this.form.value);
   }
 
 }
