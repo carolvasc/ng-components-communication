@@ -1,5 +1,5 @@
-<div class="card">
-  <div style="margin-bottom: 20px">
+<div class="container card">
+  <div class="mb-20">
     <h1>Parent Component</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
       <input type="text" formControlName="name" />
@@ -7,4 +7,5 @@
     </form>
   </div>
   <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
+  <app-second-child [data]="secondDataArray"></app-second-child>
 </div>

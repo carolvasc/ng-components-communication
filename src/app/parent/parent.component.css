@@ -1,4 +1,14 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .card {
   min-width: 500px;
   min-height: 600px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
