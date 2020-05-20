@@ -1,14 +1,31 @@
 .container {
+  max-width: 940px;
+  margin: 0 auto;
+  margin-top: 7%;
+}
+
+.card-header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.card {
-  min-width: 500px;
-  min-height: 600px;
+.form-align {
+  margin-top: 12px;
+  margin-right: 13px;
 }
 
-.mb-20 {
-  margin-bottom: 20px;
+.field-align {
+  width: 270px;
+  margin-right: 10px;
+}
+
+.mr-6 {
+  margin-right: 6px;
 }
