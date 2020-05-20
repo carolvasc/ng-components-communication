@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { SecondChildComponent } from '../second-child/second-child.component';
 
 @Component({
   selector: 'app-parent',
@@ -11,6 +12,8 @@ export class ParentComponent implements OnInit {
   form: FormGroup
   childData = {};
   secondDataArray;
+
+  @ViewChild(SecondChildComponent) secondChild: SecondChildComponent;
 
   constructor(private fb: FormBuilder) { }
 
@@ -28,6 +31,10 @@ export class ParentComponent implements OnInit {
   getDataFromChild(event) {
     this.form.reset({ name: event.name });
     this.secondDataArray = { name: event.name };
+  }
+
+  clearChildLog() {
+    this.secondChild.clearLog();
   }
 
 }
