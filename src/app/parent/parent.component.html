@@ -1,12 +1,29 @@
-<div class="container card">
-  <div class="mb-20">
-    <h1>Parent Component</h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-      <input type="text" formControlName="name" />
-      <button type="submit">Envia para o filho</button>
+<mat-card class="container">
+  <mat-card-header class="card-header">
+    <mat-card-title>
+      <h2>Parent Component</h2>
+    </mat-card-title>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="form-align">
+      <mat-form-field class="field-align">
+        <mat-label>Escreva algo aqui</mat-label>
+        <input matInput formControlName="name" autocomplete="off">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="mr-6">
+        Enviar
+      </button>
+      <button mat-raised-button color="primary" type="button" (click)="clearChildLog()">
+        Limpar Log (ViewChild)
+      </button>
     </form>
-    <button (click)="clearChildLog()">Limpando o log via ViewChild</button>
-  </div>
-  <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
-  <app-second-child [data]="secondDataArray"></app-second-child>
-</div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-grid-list cols="2" style="padding-bottom: '0px !important'">
+      <mat-grid-tile>
+        <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-second-child [data]="secondDataArray"></app-second-child>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
