@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-second-child',
@@ -11,9 +12,11 @@ export class SecondChildComponent implements OnInit, OnChanges {
   currentValue: string;
   logChanges = [];
 
-  constructor() { }
+  constructor(private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
+    this.communicationService.clear
+      .subscribe((response) => this.logChanges = response);
   }
 
   ngOnChanges(changes: SimpleChanges) {

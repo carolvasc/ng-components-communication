@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-first-child',
@@ -13,7 +14,7 @@ export class FirstChildComponent implements OnInit, OnChanges {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private commnucationService: CommunicationService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -29,6 +30,10 @@ export class FirstChildComponent implements OnInit, OnChanges {
 
   onSubmit() {
     this.dataToParent.emit(this.form.value);
+  }
+
+  clearSiblingLog() {
+    this.commnucationService.clearLog([]);
   }
 
 }
