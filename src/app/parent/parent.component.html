@@ -5,6 +5,7 @@
       <input type="text" formControlName="name" />
       <button type="submit">Envia para o filho</button>
     </form>
+    <button (click)="clearChildLog()">Limpar o log</button>
   </div>
   <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
   <app-second-child [data]="secondDataArray"></app-second-child>

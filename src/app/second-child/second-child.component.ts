@@ -28,4 +28,8 @@ export class SecondChildComponent implements OnInit, OnChanges {
     }
   }
 
+  clearLog() {
+    this.logChanges = [];
+  }
+
 }

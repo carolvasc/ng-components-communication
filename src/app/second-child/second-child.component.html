@@ -2,6 +2,7 @@
   <h1>Second Child Component</h1>
   <p *ngIf="currentValue">Valor atual: {{currentValue}}</p>
   <div *ngIf="logChanges.length > 0">
+    <h3>Log</h3>
     <p *ngFor="let log of logChanges">
       {{log}}
     </p>
