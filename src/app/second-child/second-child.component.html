@@ -1,10 +1,14 @@
-<div class="card">
-  <h1>Second Child Component</h1>
-  <p *ngIf="currentValue">Valor atual: {{currentValue}}</p>
-  <div *ngIf="logChanges.length > 0">
-    <h3>Log</h3>
-    <p *ngFor="let log of logChanges">
-      {{log}}
-    </p>
-  </div>
-</div>
+<mat-card class="card-dimension">
+  <mat-card-header>
+    <h2>Second Child Component</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <p *ngIf="currentValue"><b>Valor atual:</b> {{currentValue}}</p>
+    <div *ngIf="logChanges.length > 0">
+      <h3>Log</h3>
+      <p *ngFor="let log of logChanges">
+        {{log}}
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

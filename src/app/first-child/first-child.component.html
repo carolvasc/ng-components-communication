@@ -1,8 +1,21 @@
-<div class="card">
-  <h1>First Child Component</h1>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-    <input type="text" formControlName="name" />
-    <button submit="submit">Retorna para o pai</button>
-  </form>
-  <button (click)="clearSiblingLog()">Limpando o log via Service</button>
-</div>
+<mat-card class="card-dimension">
+  <mat-card-header>
+    <h2>First Child Component</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="form-align">
+      <mat-form-field class="field-align">
+        <mat-label>Escreva algo aqui</mat-label>
+        <input matInput formControlName="name" autocomplete="off">
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" submit="submit" class="mr-15">
+          Enviar
+        </button>
+        <button mat-raised-button color="primary" type="button" (click)="clearSiblingLog()">
+          Limpar Log (Service)
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

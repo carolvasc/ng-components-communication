@@ -16,8 +16,14 @@
       </button>
     </form>
   </mat-card-header>
-  <mat-card-content class="card-content">
-    <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
-    <app-second-child [data]="secondDataArray"></app-second-child>
+  <mat-card-content>
+    <mat-grid-list cols="2" style="padding-bottom: '0px !important'">
+      <mat-grid-tile>
+        <app-first-child [data]="childData" (dataToParent)="getDataFromChild($event)"></app-first-child>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-second-child [data]="secondDataArray"></app-second-child>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-card-content>
 </mat-card>

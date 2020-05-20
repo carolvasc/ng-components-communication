@@ -1,4 +1,4 @@
-.card {
-  width: 400px;
-  height: 500px;
+.card-dimension {
+  min-height: 420px;
+  min-width: 420px;
 }
